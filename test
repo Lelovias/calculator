@@ -1,0 +1,122 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            double num1, num2, sum = 0;
+
+        Start:
+            Console.WriteLine($"Do you want to contiue with your name?(yes or no)");
+
+            string newname = Console.ReadLine();
+
+            if (newname == "no")
+            {
+                goto nameselection;
+            }
+
+            else if (newname == "yes")
+            {
+                goto welcome;
+            }
+
+
+            nameselection:
+            string name;
+            Console.WriteLine("Please write your Name!");
+            name = Console.ReadLine();
+
+            Console.WriteLine();
+
+            
+
+            welcome:
+            
+            Console.WriteLine($"Welcome to THE CALCULATOR, {name}!");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("First pick two numbers!");
+
+
+            Console.WriteLine("Write your First Number!");
+
+            num1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine();
+
+            Console.WriteLine($"Nice! Now write the second one!");
+            num2 = Convert.ToInt32(Console.ReadLine());
+            
+            goto Operator;
+
+            Operator:
+            Console.WriteLine();
+            Console.WriteLine("Do you want to add(a), subtract(s), multiply(m) or divide(d)?");
+            string method = Console.ReadLine();
+
+            if (method == "a")
+            {
+                sum = num1 + num2;
+            }
+
+            else if (method == "s")
+            {
+                sum = num1 - num2;
+            }
+
+            else if (method == "m")
+            {
+                sum = num1 * num2;
+            }
+
+            else if (method == "d")
+            {
+                sum = num1 / num2;
+            }
+
+            else 
+            {
+                Console.WriteLine($"{method} is not a valid operator");
+                goto Operator;
+            }
+
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine($"Your result is {sum}!");
+            Console.WriteLine();
+            Console.WriteLine();
+
+            goto YorN;
+
+            YorN:
+            Console.WriteLine($"Do you want to go again, {name}? (yes or no)");
+            string yesorno = Console.ReadLine();
+
+            if (yesorno == "yes")
+            {
+                goto Start;
+            }
+
+            else if (yesorno == "no")
+            {
+                Environment.Exit(0);
+            }
+
+            else
+            {
+                Console.WriteLine($"{yesorno} is not a valid option");
+                goto YorN;
+            }
+
+            Console.ReadKey();
+        }
+    }
+}
